@@ -1,7 +1,6 @@
 #include "DxLib.h"
-#include "Game.h"
+#include "Game\\Game.h"
 #include <time.h>
-#include "ImageMapObject.h"
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {

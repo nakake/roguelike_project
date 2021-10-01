@@ -2,10 +2,10 @@
 
 #define DEF_MAP_H
 
-#include "constant.h"
-#include "Object.h"
+#include "Option\\constant.h"
+#include "Option\\Object.h"
 #include "Area.h"
-#include "Random.h"
+#include "Option\\Random.h"
 #include "DxLib.h"
 #include "ImageMapObject.h"
 

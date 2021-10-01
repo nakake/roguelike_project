@@ -72,15 +72,19 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(ProjectDir)/src/;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
+    <IncludePath>$(ProjectDir)/src/;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(ProjectDir)/src/;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
+    <IncludePath>$(ProjectDir)/src/;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -151,36 +155,36 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Acter.cpp" />
-    <ClCompile Include="Area.cpp" />
-    <ClCompile Include="Camera.cpp" />
-    <ClCompile Include="Game.cpp" />
-    <ClCompile Include="Image.cpp" />
-    <ClCompile Include="ImageMapObject.cpp" />
-    <ClCompile Include="PlayerActer.cpp" />
-    <ClCompile Include="PlayerImage.cpp" />
-    <ClCompile Include="Road.cpp" />
-    <ClCompile Include="Map.cpp" />
-    <ClCompile Include="Object.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="Random.cpp" />
-    <ClCompile Include="Room.cpp" />
+    <ClCompile Include="src\Acter\Acter.cpp" />
+    <ClCompile Include="src\Map\Area.cpp" />
+    <ClCompile Include="src\Game\Camera.cpp" />
+    <ClCompile Include="src\Game\Game.cpp" />
+    <ClCompile Include="src\Option\Image.cpp" />
+    <ClCompile Include="src\Map\ImageMapObject.cpp" />
+    <ClCompile Include="src\Acter\PlayerActer.cpp" />
+    <ClCompile Include="src\Acter\PlayerImage.cpp" />
+    <ClCompile Include="src\Map\Road.cpp" />
+    <ClCompile Include="src\Map\Map.cpp" />
+    <ClCompile Include="src\Option\Object.cpp" />
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\Option\Random.cpp" />
+    <ClCompile Include="src\Map\Room.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Acter.h" />
-    <ClInclude Include="Area.h" />
-    <ClInclude Include="Camera.h" />
-    <ClInclude Include="constant.h" />
-    <ClInclude Include="Game.h" />
-    <ClInclude Include="Image.h" />
-    <ClInclude Include="ImageMapObject.h" />
-    <ClInclude Include="PlayerActer.h" />
-    <ClInclude Include="PlayerImage.h" />
-    <ClInclude Include="Road.h" />
-    <ClInclude Include="Map.h" />
-    <ClInclude Include="Object.h" />
-    <ClInclude Include="Random.h" />
-    <ClInclude Include="Room.h" />
+    <ClInclude Include="src\Acter\Acter.h" />
+    <ClInclude Include="src\Map\Area.h" />
+    <ClInclude Include="src\Game\Camera.h" />
+    <ClInclude Include="src\Option\constant.h" />
+    <ClInclude Include="src\Game\Game.h" />
+    <ClInclude Include="src\Option\Image.h" />
+    <ClInclude Include="src\Map\ImageMapObject.h" />
+    <ClInclude Include="src\Acter\PlayerActer.h" />
+    <ClInclude Include="src\Acter\PlayerImage.h" />
+    <ClInclude Include="src\Map\Road.h" />
+    <ClInclude Include="src\Map\Map.h" />
+    <ClInclude Include="src\Option\Object.h" />
+    <ClInclude Include="src\Option\Random.h" />
+    <ClInclude Include="src\Map\Room.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

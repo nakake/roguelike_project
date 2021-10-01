@@ -2,8 +2,8 @@
 
 #define DEF_ACTER_H
 
-#include "Object.h"
-#include "constant.h"
+#include "Option\\Object.h"
+#include "Option\\constant.h"
 
 class Acter : public Object
 {
