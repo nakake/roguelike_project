@@ -2,10 +2,11 @@
 
 #define DEF_GAME_H
 
-#include "Option\\constant.h"
-#include "Map\\Map.h"
+#include "Option/constant.h"
+#include "Map/Map.h"
 #include "Camera.h"
-#include "Option\\Random.h"
+#include "Option/Random.h"
+#include "Acter/PlayerActer.h"
 
 class Game
 {
@@ -15,6 +16,7 @@ public:
 private:
 	Camera camera;
 	Map map;
+	//PlayerActer player;
 };
 
 

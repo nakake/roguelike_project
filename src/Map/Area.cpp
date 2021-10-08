@@ -12,12 +12,12 @@ void Area :: initArea() {
 
 //c•‚ğ”¼•ª‚É‚·‚é
 void Area::setHightHalf() {
-	this->setHight((this->getHight() / 2));
+	this->setHight((this->getHight() * 0.5));
 }
 
 //‰¡•‚ğ”¼•ª‚É‚·‚é
 void Area::setWidthHalf() {
-	this->setWidth((this->getWidth() / 2));
+	this->setWidth((this->getWidth() * 0.5));
 }
 
 //c•‚ğƒZƒbƒg‚·‚é

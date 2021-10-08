@@ -2,13 +2,15 @@
 
 #define DEF_PLAYERACTER_H
 
-#include "Acter\\Acter.h"
+#include "Acter/Acter.h"
+#include "PlayerImage.h"
 
 class PlayerActer : public Acter
 {
 public:
+	
 private:
-
+	PlayerImage image;
 };
 
 

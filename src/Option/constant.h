@@ -24,11 +24,11 @@
 
 typedef struct PlayerImageNums
 {
-	std::string fileName = "image/Character.png";
-	int splitX = 3;
-	int splitY = 4;
-	int sizeX = 24;
-	int sizeY = 32;
+	const std::string fileName = "image/Character.png";
+	const int splitX = 3;
+	const int splitY = 4;
+	const int sizeX = 24;
+	const int sizeY = 32;
 }PLAYERIMAGENUMS;
 
 enum OBJECT_TYPE {
