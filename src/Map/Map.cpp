@@ -268,8 +268,8 @@ void Map::viewRange(int centerX, int centerY) {
 	int x, y, tmpX, tmpY;
 
 	GetDrawScreenSize(&x, &y);
-	tmpX = ((x / 2) / image.getImageSizeX(OBJECT_WALL)) - SCREEN_RENGE;
-	tmpY = ((y / 2) / image.getImageSizeY(OBJECT_WALL)) - SCREEN_RENGE;
+	tmpX = ((x * 0.5) / image.getImageSizeX(OBJECT_WALL)) - SCREEN_RENGE;
+	tmpY = ((y * 0.5) / image.getImageSizeY(OBJECT_WALL)) - SCREEN_RENGE;
 
 	for (int i = centerY - SCREEN_RENGE, y = tmpY; i < centerY + SCREEN_RENGE; i++, y++) {
 		for (int j = centerX - SCREEN_RENGE, x = tmpX; j < centerX + SCREEN_RENGE; j++, x++) {

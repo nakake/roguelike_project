@@ -1,11 +1,14 @@
 #include "Game.h"
+#include "Acter\PlayerActer.h"
 
 void Game::gameStart() {
 	this->map.genarateMap();
 	//this->map.viewMap();
 	//ScreenFlip();
 	//WaitKey();
+	//this->player.setxy(10,10);
 	this->gameMain();
+	
 }
 
 void Game::gameMain() {

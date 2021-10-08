@@ -20,3 +20,11 @@ void Acter::move(int direction) {
 		break;
 	}
 }
+
+void Acter::setX(int x) {
+	this->x = x;
+}
+
+void Acter::setY(int y) {
+	this->y = y;
+}
