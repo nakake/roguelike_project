@@ -5,7 +5,7 @@
 #include "Acter/Acter.h"
 #include "PlayerImage.h"
 
-class PlayerActer : public Acter
+class Player : public Acter
 {
 public:
 	

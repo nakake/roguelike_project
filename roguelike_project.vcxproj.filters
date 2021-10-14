@@ -65,9 +65,6 @@
     <ClCompile Include="src\Option\Object.cpp">
       <Filter>ソース ファイル\Options</Filter>
     </ClCompile>
-    <ClCompile Include="src\Acter\PlayerActer.cpp">
-      <Filter>ソース ファイル\Acter</Filter>
-    </ClCompile>
     <ClCompile Include="src\Acter\PlayerImage.cpp">
       <Filter>ソース ファイル\Acter</Filter>
     </ClCompile>
@@ -79,6 +76,9 @@
     </ClCompile>
     <ClCompile Include="src\Map\Room.cpp">
       <Filter>ソース ファイル\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Acter\Player.cpp">
+      <Filter>ソース ファイル\Acter</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -106,9 +106,6 @@
     <ClInclude Include="src\Option\Object.h">
       <Filter>ヘッダー ファイル\Options_h</Filter>
     </ClInclude>
-    <ClInclude Include="src\Acter\PlayerActer.h">
-      <Filter>ヘッダー ファイル\Acter_h</Filter>
-    </ClInclude>
     <ClInclude Include="src\Acter\PlayerImage.h">
       <Filter>ヘッダー ファイル\Acter_h</Filter>
     </ClInclude>
@@ -122,6 +119,9 @@
       <Filter>ヘッダー ファイル\Map_h</Filter>
     </ClInclude>
     <ClInclude Include="src\Acter\Acter.h">
+      <Filter>ヘッダー ファイル\Acter_h</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Acter\Player.h">
       <Filter>ヘッダー ファイル\Acter_h</Filter>
     </ClInclude>
   </ItemGroup>

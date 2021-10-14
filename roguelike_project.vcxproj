@@ -161,7 +161,7 @@
     <ClCompile Include="src\Game\Game.cpp" />
     <ClCompile Include="src\Option\Image.cpp" />
     <ClCompile Include="src\Map\ImageMapObject.cpp" />
-    <ClCompile Include="src\Acter\PlayerActer.cpp" />
+    <ClCompile Include="src\Acter\Player.cpp" />
     <ClCompile Include="src\Acter\PlayerImage.cpp" />
     <ClCompile Include="src\Map\Road.cpp" />
     <ClCompile Include="src\Map\Map.cpp" />
@@ -178,7 +178,7 @@
     <ClInclude Include="src\Game\Game.h" />
     <ClInclude Include="src\Option\Image.h" />
     <ClInclude Include="src\Map\ImageMapObject.h" />
-    <ClInclude Include="src\Acter\PlayerActer.h" />
+    <ClInclude Include="src\Acter\Player.h" />
     <ClInclude Include="src\Acter\PlayerImage.h" />
     <ClInclude Include="src\Map\Road.h" />
     <ClInclude Include="src\Map\Map.h" />
