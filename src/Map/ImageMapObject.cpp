@@ -1,36 +1,22 @@
 #include "ImageMapObject.h"
 
-//ImageMapObject::ImageMapObject() {
-//	char pathName[] = "image/";
-//	char extension[] = ".png";
-//	char fileFrontname[100][100] = { "floor","wall","stair" };
-//	char fileName[100]; 
-//
-//	for (int i = 0; i < MAX_IMAGE_MAP_OBJECT; i++) {
-//		sprintf_s(fileName,sizeof(fileName),"%s%s%s",pathName,fileFrontname[i], extension);
-//		this->GHandle[i] = LoadGraph(fileName);
-//		GetGraphSize(this->GHandle[i], &this->imageSizeX[i], &this->imageSizeY[i]);
-//	}
-//}
-
 ImageMapObject::~ImageMapObject() {
-	for (int i = 0; i < MAX_IMAGE_MAP_OBJECT;i++) {
+	for (int i = 0; i < this->imageNums.imageNum;i++) {
 		DeleteGraph(this->GHandle[i]);
 	}
 }
 
 void ImageMapObject::initImage() {
-	char pathName[] = "image/";
-	char extension[] = ".png";
-	char fileFrontname[100][100] = { "floor","wall","stair" };
-	char fileName[100];
-	int tmpX, tmpY;
+	this->GHandle.resize(this->imageNums.imageNum);
 
-	for (int i = 0; i < MAX_IMAGE_MAP_OBJECT; i++) {
-		sprintf_s(fileName, sizeof(fileName), "%s%s%s", pathName, fileFrontname[i], extension);
-		this->GHandle.push_back(LoadGraph(fileName));
-		GetGraphSize(this->GHandle[i], &tmpX, &tmpY);
-		this->imageSizeX.push_back(tmpX);
-		this->imageSizeY.push_back(tmpY);
+	LoadDivGraph(this->imageNums.fileName.c_str(), this->imageNums.imageNum,
+		this->imageNums.splitX, this->imageNums.splitY,
+		this->imageNums.sizeX, this->imageNums.sizeY,
+		&*this->GHandle.begin());
+	
+	
+	for (int i = 0; i < this->imageNums.imageNum; i++) {
+		this->imageSizeX.push_back(this->imageNums.sizeX);
+		this->imageSizeY.push_back(this->imageNums.sizeY);
 	}
 }
