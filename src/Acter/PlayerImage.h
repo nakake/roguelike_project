@@ -12,7 +12,7 @@ class PlayerImage : public Image
 public:
 	void initImage();
 private:
-	PLAYERIMAGENUMS playerImageNums;
+	PLAYER_IMAGE_NUMS playerImageNums;
 };
 
 
