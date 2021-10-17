@@ -2,10 +2,10 @@
 
 #define DEF_IMAGEMAPOBJECT_H
 
-#include "Option/constant.h"
+#include "constant.h"
 #include <stdio.h>
 #include "DxLib.h"
-#include "Option/Image.h"
+#include "Image.h"
 
 class ImageMapObject : public Image
 {

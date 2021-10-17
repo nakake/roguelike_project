@@ -2,8 +2,8 @@
 
 #define DEF_PLAYERIMAGE_H
 
-#include "Option/Image.h"
-#include "Option/constant.h"
+#include "Image.h"
+#include "constant.h"
 #include "DxLib.h"
 
 class PlayerImage : public Image

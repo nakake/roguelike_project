@@ -2,8 +2,8 @@
 
 #define DEF_ROOM_H
 
-#include "Option/constant.h"
-#include "Option/Random.h"
+#include "constant.h"
+#include "Random.h"
 #include <stdlib.h>
 
 class Room

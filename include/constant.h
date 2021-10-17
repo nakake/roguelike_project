@@ -22,7 +22,7 @@
 
 typedef struct PlayerImageNums
 {
-	const std::string fileName = "image/player.png";
+	const std::string fileName = "../image/player.png";
 	const int imageNum = 12;
 	const int splitX = 3;
 	const int splitY = 4;
@@ -32,7 +32,7 @@ typedef struct PlayerImageNums
 
 typedef struct ObjectImageNums
 {
-	const std::string fileName = "image/objects.png";
+	const std::string fileName = "../image/objects.png";
 	const int imageNum = 3;
 	const int splitX = 2;
 	const int splitY = 2;
