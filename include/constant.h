@@ -26,7 +26,7 @@ typedef struct PlayerImageNums
 	const int imageNum = 12;
 	const int splitX = 3;
 	const int splitY = 4;
-	const int sizeX = 24;
+	const int sizeX = 32;
 	const int sizeY = 32;
 }PLAYER_IMAGE_NUMS;
 
@@ -43,7 +43,8 @@ typedef struct ObjectImageNums
 enum OBJECT_TYPE {
 	OBJECT_FLOOR,
 	OBJECT_WALL,
-	OBJECT_STAIR
+	OBJECT_STAIR,
+	OBJECT_PLAYER
 };
 
 enum DIRECTION {

@@ -1,7 +1,7 @@
 #include "ImageMapObject.h"
 
 ImageMapObject::~ImageMapObject() {
-	for (int i = 0; i < this->imageNums.imageNum;i++) {
+	for (int i = 0; i < GHandle.size();i++) {
 		DeleteGraph(this->GHandle[i]);
 	}
 }

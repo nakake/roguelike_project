@@ -1,7 +1,7 @@
 #include "PlayerImage.h"
 
 PlayerImage::~PlayerImage() {
-	for (int i = 0; i < this->playerImageNums.imageNum; i++) {
+	for (int i = 0; i < GHandle.size(); i++) {
 		DeleteGraph(this->GHandle[i]);
 	}
 }

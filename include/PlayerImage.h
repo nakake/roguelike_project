@@ -8,8 +8,8 @@
 
 class PlayerImage : public Image
 {
-	~PlayerImage();
 public:
+	~PlayerImage();
 	void initImage();
 private:
 	PLAYER_IMAGE_NUMS playerImageNums;

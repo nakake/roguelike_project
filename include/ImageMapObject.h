@@ -3,7 +3,6 @@
 #define DEF_IMAGEMAPOBJECT_H
 
 #include "constant.h"
-#include <stdio.h>
 #include "DxLib.h"
 #include "Image.h"
 
