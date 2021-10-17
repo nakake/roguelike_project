@@ -1,5 +1,5 @@
 #include "Game.h"
-#include "Acter/Player.h"
+#include "Player.h"
 
 void Game::gameStart() {
 	this->map.genarateMap();

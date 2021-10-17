@@ -2,7 +2,7 @@
 
 #define DEF_PLAYERACTER_H
 
-#include "Acter/Acter.h"
+#include "Acter.h"
 #include "PlayerImage.h"
 
 class Player : public Acter

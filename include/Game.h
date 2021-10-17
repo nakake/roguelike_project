@@ -2,11 +2,11 @@
 
 #define DEF_GAME_H
 
-#include "Option/constant.h"
-#include "Map/Map.h"
+#include "constant.h"
+#include "Map.h"
 #include "Camera.h"
-#include "Option/Random.h"
-#include "Acter/PlayerActer.h"
+#include "Random.h"
+#include "Player.h"
 
 class Game
 {

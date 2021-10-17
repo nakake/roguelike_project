@@ -1,5 +1,5 @@
 #include "DxLib.h"
-#include "Game/Game.h"
+#include "Game.h"
 #include <time.h>
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)

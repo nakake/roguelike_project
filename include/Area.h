@@ -1,7 +1,7 @@
 #ifndef DEF_AREA_H
 #define DEF_AREA_H
 
-#include "Option/constant.h"
+#include "constant.h"
 #include "Room.h"
 #include "Road.h"
 
