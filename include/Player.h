@@ -9,7 +9,7 @@ class Player : public Acter
 {
 public:
 	void createPlayer(int x, int y);
-	void view();
+	void view(int imageNum);
 	
 private:
 	PlayerImage image;

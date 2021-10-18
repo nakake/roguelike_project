@@ -1,12 +1,10 @@
 #include "DxLib.h"
 #include "Game.h"
 #include <time.h>
-#include "Player.h"
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
 	Game game;
-	Player p;
 	
 	ChangeWindowMode(TRUE); //ウィンドウモードに変更
 	SetWindowSizeChangeEnableFlag(TRUE); //画面サイズの変更を許可
@@ -29,11 +27,10 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 	SetDrawScreen(DX_SCREEN_BACK);	//裏画面に描画するように設定
 
-	//game.gameStart();
-	p.createPlayer(0, 0);
-	p.view();
-	ScreenFlip();
-	WaitKey();
+	game.gameStart();
+
+	/*ScreenFlip();
+	WaitKey();*/
 
 	DxLib_End();				// ＤＸライブラリ使用の終了処理
 

@@ -16,6 +16,10 @@ public:
 	void viewMap();
 	void viewRange(int centerX, int centerY);
 	int getAreaCount();
+	Area getArea(int areaNum);
+	ImageMapObject getMapImage();
+	Object getObject(int x, int y);
+	void viewImage(int imageNum, int x, int y);
 private:
 	void initMap();
 	void spritArea(int areaIdx);

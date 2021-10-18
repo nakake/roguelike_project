@@ -364,3 +364,21 @@ int Map::getAreaNum(int x, int y) {
 int Map::getAreaCount() {
 	return this->areaCount;
 }
+
+Area Map::getArea(int areaNum) {
+	return this->area[areaNum];
+}
+
+ImageMapObject Map::getMapImage() {
+	return this->image;
+}
+
+Object Map::getObject(int x, int y) {
+	return this->mapObject[y][x];
+}
+
+void Map::viewImage(int imageNum, int x, int y) {
+	DrawGraph((x * this->image.getImageSizeX(imageNum)),
+		(y * this->image.getImageSizeY(imageNum)),
+		this->image.getImageHandle(imageNum), FALSE);
+}

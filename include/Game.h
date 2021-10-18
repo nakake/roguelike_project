@@ -7,6 +7,7 @@
 #include "Camera.h"
 #include "Random.h"
 #include "Player.h"
+#include "Player.h"
 
 class Game
 {
@@ -14,9 +15,14 @@ public:
 	void gameStart();
 	void gameMain();
 private:
+	void createActers();
+	void createPlayer();
+	void viewObjects(int centerX, int centerY);
+
 	Camera camera;
 	Map map;
-	//PlayerActer player;
+	Player player;
+	Random randNum;
 };
 
 
