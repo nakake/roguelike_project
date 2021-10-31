@@ -1,5 +1,7 @@
 # roguelike_project
 
+現在作成中
+
 著作権表記
 
 DXライブラリ関係
