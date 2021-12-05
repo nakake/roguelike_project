@@ -2,13 +2,13 @@
 
 #define DEF_CAMERA_H
 
-class Camera
+#include "Object.h"
+
+class Camera : public Object
 {
 	
 public:
-	void setCamera(int x, int y);
 private:
-	int x, y;
 };
 
 #endif // !DEF_CAMERA_H

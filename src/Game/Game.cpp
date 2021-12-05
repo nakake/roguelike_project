@@ -1,5 +1,4 @@
 #include "Game.h"
-#include "Player.h"
 
 void Game::gameStart() {
 	this->map.genarateMap();
@@ -7,6 +6,7 @@ void Game::gameStart() {
 	//ScreenFlip();
 	//WaitKey();
 	this->createActers();
+	this->camera.setxy(this->player.getX(), this->player.getY());
 	this->gameMain();
 	
 }
@@ -18,10 +18,10 @@ void Game::createActers() {
 
 void Game::createPlayer() {
 	int randAreaNum = randNum.getRandamNum(0, (this->map.getAreaCount() - 1));
-	int x = randNum.getRandamNum(this->map.getArea(randAreaNum).getX(), 
-		this->map.getArea(randAreaNum).getXaddWidth());
-	int y = randNum.getRandamNum(this->map.getArea(randAreaNum).getY(),
-		this->map.getArea(randAreaNum).getYaddHight());
+	int x = randNum.getRandamNum(this->map.getArea(randAreaNum).getRoom().getX(), 
+		this->map.getArea(randAreaNum).getRoom().getXaddWidth() - 1);
+	int y = randNum.getRandamNum(this->map.getArea(randAreaNum).getRoom().getY(),
+		this->map.getArea(randAreaNum).getRoom().getYaddHight() - 1);
 	this->player.createPlayer(x,y);
 }
 
@@ -31,75 +31,89 @@ void Game::gameMain() {
 	int y = this->player.getY();*/
 
 	while (TRUE) {
+		
 		if ((ProcessMessage() == -1) || (CheckHitKey(KEY_INPUT_ESCAPE) != 0)) {
 			break;
 		}
-		if ((CheckHitKey(KEY_INPUT_UP) == 1)) {
-			DrawFormatString(32,32,GetColor(255,255,255),"↑");
-			y--;
-		}
-		else if ((CheckHitKey(KEY_INPUT_DOWN) == 1)){ 
-			DrawFormatString(32, 32, GetColor(255, 255, 255), "↓");
-			y++;
-		}
-		else if ((CheckHitKey(KEY_INPUT_LEFT) == 1)) {
-			DrawFormatString(32, 32, GetColor(255, 255, 255), "←");
-			x--;
-		}
-		else if ((CheckHitKey(KEY_INPUT_RIGHT) == 1)) {
-			DrawFormatString(32, 32, GetColor(255, 255, 255), "→");
-			x++;
-		}
 		else if ((CheckHitKey(KEY_INPUT_Q) == 1)) {
-			this->map.genarateMap();			
+			this->map.genarateMap();
+			this->createActers();
 		}
-		//this->map.viewRange(x, y);
-		//this->player.view(0);
-		this->viewObjects(x, y);
-		ScreenFlip();	//裏の画面を表に描写
-		ClearDrawScreen(); //画面のリセット
 		
+		this->map.viewMap();
+		//this->map.viewRange(this->camera.getX(), this->camera.getY());
+		this->player.view();
+		
+		//this->player.view(0);
+		//this->viewAllObject();
+
+		
+		ScreenFlip();	//裏の画面を表に描写
+		
+
+		this->player.command();
+		this->camera.setxy(this->player.getX(), this->player.getY());
+		ClearDrawScreen(); //画面のリセット
+		WaitTimer(100);
 	}
 }
 
 void Game::viewObjects(int centerX, int centerY) {
-	int x, y, tmpX, tmpY, tmp = 0;
+	int x, y, tmpX, tmpY, imageSizeX, imageSizeY;
+
+	imageSizeX = this->map.getMapImage().getImageSizeX(OBJECT_WALL);
+	imageSizeY = this->map.getMapImage().getImageSizeY(OBJECT_WALL);
 
 	GetDrawScreenSize(&x, &y);
-	tmpX = ((x * 0.5) / this->map.getMapImage().getImageSizeX(OBJECT_WALL)) - SCREEN_RENGE;
-	tmpY = ((y * 0.5) / this->map.getMapImage().getImageSizeY(OBJECT_WALL)) - SCREEN_RENGE;
-
+	
+	tmpX = ((x * 0.5) - (SCREEN_RENGE * imageSizeX));
+	tmpY = ((y * 0.5) - (SCREEN_RENGE * imageSizeY));
+	
+	DrawFormatString(0,0,GetColor(0,0,0),"%d%d",tmpX, tmpY);
+	
 	for (int i = centerY - SCREEN_RENGE, y = tmpY; i < centerY + SCREEN_RENGE; i++, y++) {
 		for (int j = centerX - SCREEN_RENGE, x = tmpX; j < centerX + SCREEN_RENGE; j++, x++) {
 			if ((i < 0) || (i >= MAX_HIGHT) || (j < 0) || (j >= MAX_WIDTH)) {
-				tmp = DrawGraph((x * this->map.getMapImage().getImageSizeX(OBJECT_WALL)),
-					(y * this->map.getMapImage().getImageSizeY(OBJECT_WALL)), 
-					this->map.getMapImage().getImageHandle(OBJECT_WALL), FALSE);
+				DrawGraph(x,y, this->map.getMapImage().getImageHandle(OBJECT_WALL), FALSE);
 				continue;
 			}
 			if (this->map.getObject(i,j).getObjectID() == OBJECT_FLOOR) {
-				tmp= DrawGraph((x * this->map.getMapImage().getImageSizeX(OBJECT_FLOOR)),
-					(y * this->map.getMapImage().getImageSizeY(OBJECT_FLOOR)),
+				DrawGraph((x),
+					(y),
 					this->map.getMapImage().getImageHandle(OBJECT_FLOOR), FALSE);
 				continue;
 			}
 			if (this->map.getObject(i, j).getObjectID() == OBJECT_WALL) {
-				tmp = DrawGraph((x * this->map.getMapImage().getImageSizeX(OBJECT_WALL)),
-					(y * this->map.getMapImage().getImageSizeY(OBJECT_WALL)),
+				DrawGraph((x),
+					(y),
 					this->map.getMapImage().getImageHandle(OBJECT_WALL), FALSE);
 				continue;
 			}
 			if (this->map.getObject(i, j).getObjectID() == OBJECT_STAIR) {
-				tmp = DrawGraph((x * this->map.getMapImage().getImageSizeX(OBJECT_STAIR)),
-					(y * this->map.getMapImage().getImageSizeY(OBJECT_STAIR)),
+				DrawGraph((x),
+					(y),
 					this->map.getMapImage().getImageHandle(OBJECT_STAIR), FALSE);
 				continue;
 			}
-			if (tmp == -1) {
-				DrawFormatString(0,0,GetColor(0,0,0),"%d",tmp);
+		}
+	}
+}
+
+void Game::viewAllObject() {
+	for (int i = 0; i < MAX_HIGHT; i++) {
+		for (int j = 0; j < MAX_WIDTH; j++) {
+			if (this->map.getObject(j, i).getObjectID() == OBJECT_FLOOR) {
+				DrawGraph(j*32,i*32,this->map.getMapImage().getImageHandle(OBJECT_FLOOR), FALSE);
+				continue;
+			}
+			if (this->map.getObject(j, i).getObjectID() == OBJECT_WALL) {
+				DrawGraph(j*32,i*32,this->map.getMapImage().getImageHandle(OBJECT_WALL), FALSE);
+				continue;
+			}
+			if (this->map.getObject(j, i).getObjectID() == OBJECT_STAIR) {
+				DrawGraph(j*32,i*32,this->map.getMapImage().getImageHandle(OBJECT_STAIR), FALSE);
+				continue;
 			}
 		}
 	}
-
 }
-

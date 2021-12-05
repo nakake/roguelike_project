@@ -11,8 +11,10 @@ public:
 	void move(int direction);
 	void setX(int x);
 	void setY(int y);
+	void setDirection(int direction);
+	int getDirection();
 private:
-
+	int direction;
 };
 
 

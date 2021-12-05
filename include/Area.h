@@ -17,9 +17,11 @@ public:
 	void setAreaNum(int areaNum);
 	int getAreaNum();
 	Room room;
+	Room getRoom();
 	Road roadEnd[ROAD_DIRECTION_NUM];	
 private:
 	int areaNum;
+	
 };
 
 #endif // !DEF_AREA_H

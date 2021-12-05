@@ -8,6 +8,7 @@
 #include "Random.h"
 #include "DxLib.h"
 #include "ImageMapObject.h"
+#include "Player.h"
 
 class Map
 {
@@ -36,11 +37,14 @@ private:
 	void debugViewAreaBox();
 	void debugViewSpriteArea();
 	int getAreaNum(int x, int y);
+	void createPlayer();
+
 	Object mapObject[MAX_HIGHT][MAX_WIDTH];
 	Area area[MAX_AREA];
 	int areaCount;
 	Random randNum;
 	ImageMapObject image;
+	Player player;
 };
 
 #endif // !DEF_MAP_H

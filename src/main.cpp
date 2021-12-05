@@ -1,20 +1,23 @@
 #include "DxLib.h"
 #include "Game.h"
 #include <time.h>
+#include "Player.h"
+#include "ImageMapObject.h"
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
 	Game game;
+	Player p;
 	
 	ChangeWindowMode(TRUE); //ウィンドウモードに変更
 	SetWindowSizeChangeEnableFlag(TRUE); //画面サイズの変更を許可
 	//SetGraphMode(320, 320, 32);
-	SetGraphMode(640, 640, 32); //画面サイズ(解像度？)とフレームレートを変更
-	//SetGraphMode(2560, 2560, 32);
+	//SetGraphMode(640, 640, 32); //画面サイズ(解像度？)とフレームレートを変更
+	SetGraphMode(2560, 2560, 32);
 	SetWindowSize(640, 640); //ウィンドウサイズを変更
 	SetAlwaysRunFlag(TRUE); //非アクティブでも動作するように変更
 	//SetFontThickness(0.1);
-	//SetFontSize(255);
+	SetFontSize(255);
 	srand((unsigned int)time(NULL));
 	SetBackgroundColor(155,155,155); //背景色の設定、だいたい灰色
 	
@@ -28,9 +31,19 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	SetDrawScreen(DX_SCREEN_BACK);	//裏画面に描画するように設定
 
 	game.gameStart();
+	/*p.createPlayer(16,16);
+	while (true)
+	{
+		p.view();
+		ScreenFlip();
+		ClearDrawScreen();
+		WaitTimer(100);
+		p.command();
+	}*/
+	
 
-	/*ScreenFlip();
-	WaitKey();*/
+	
+	WaitKey();
 
 	DxLib_End();				// ＤＸライブラリ使用の終了処理
 

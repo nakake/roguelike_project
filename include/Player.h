@@ -9,8 +9,9 @@ class Player : public Acter
 {
 public:
 	void createPlayer(int x, int y);
-	void view(int imageNum);
-	
+	void view();
+	void command();
+	PlayerImage getImage();
 private:
 	PlayerImage image;
 

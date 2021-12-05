@@ -12,6 +12,7 @@ void Map::genarateMap() {
 	this->connectRoad();
 	this->fillNotConectRoad();
 	this->createStair();
+	this->createPlayer();
 }
 
 //マップの初期化、全てのマスを壁にする
@@ -240,6 +241,15 @@ void Map::createStair() {
 	mapObject[randY][randX].setObjectID(OBJECT_STAIR);
 }
 
+void Map::createPlayer() {
+	int randAreaNum = randNum.getRandamNum(0, (this->getAreaCount() - 1));
+	int x = randNum.getRandamNum(this->getArea(randAreaNum).getX(),
+		this->getArea(randAreaNum).getXaddWidth());
+	int y = randNum.getRandamNum(this->getArea(randAreaNum).getY(),
+		this->getArea(randAreaNum).getYaddHight());
+	this->player.createPlayer(x, y);
+}
+
 //マップの描画を行う
 void Map::viewMap() {
 
@@ -248,18 +258,23 @@ void Map::viewMap() {
 			if (this->mapObject[i][j].getObjectID() == OBJECT_FLOOR) {
 				DrawGraph((j*image.getImageSizeX(OBJECT_FLOOR)), 
 					(i* image.getImageSizeY(OBJECT_FLOOR)), image.getImageHandle(OBJECT_FLOOR), FALSE);
-				continue;
 			}
-			if (this->mapObject[i][j].getObjectID() == OBJECT_WALL) {
+			else if (this->mapObject[i][j].getObjectID() == OBJECT_WALL) {
 				DrawGraph((j * image.getImageSizeX(OBJECT_WALL)), 
 					(i * image.getImageSizeY(OBJECT_WALL)), image.getImageHandle(OBJECT_WALL), FALSE);
-				continue;
 			}
-			if (this->mapObject[i][j].getObjectID() == OBJECT_STAIR) {
+			else if (this->mapObject[i][j].getObjectID() == OBJECT_STAIR) {
 				DrawGraph((j * image.getImageSizeX(OBJECT_STAIR)), 
 					(i * image.getImageSizeY(OBJECT_STAIR)), image.getImageHandle(OBJECT_STAIR), FALSE);
-				continue;
 			}
+
+	
+			if (this->player.getX() == j && this->player.getY() == i) {
+				DrawGraph((j * image.getImageSizeX(OBJECT_WALL)),
+					(i * image.getImageSizeY(OBJECT_WALL)), this->player.getImage().getImageHandle(0), true);
+			}
+			/*ScreenFlip();
+			WaitTimer(0.5);*/
 		}
 	}
 }
@@ -281,17 +296,18 @@ void Map::viewRange(int centerX, int centerY) {
 			if (this->mapObject[i][j].getObjectID() == OBJECT_FLOOR) {
 				DrawGraph((x * image.getImageSizeX(OBJECT_FLOOR)), 
 					(y * image.getImageSizeY(OBJECT_FLOOR)), image.getImageHandle(OBJECT_FLOOR), FALSE);
-				continue;
 			}
-			if (this->mapObject[i][j].getObjectID() == OBJECT_WALL) {
+			else if (this->mapObject[i][j].getObjectID() == OBJECT_WALL) {
 				DrawGraph((x * image.getImageSizeX(OBJECT_WALL)), 
 					(y * image.getImageSizeY(OBJECT_WALL)), image.getImageHandle(OBJECT_WALL), FALSE);
-				continue;
 			}
-			if (this->mapObject[i][j].getObjectID() == OBJECT_STAIR) {
+			else if (this->mapObject[i][j].getObjectID() == OBJECT_STAIR) {
 				DrawGraph((x * image.getImageSizeX(OBJECT_STAIR)), 
 					(y * image.getImageSizeY(OBJECT_STAIR)), image.getImageHandle(OBJECT_STAIR), FALSE);
-				continue;
+			}
+			if (this->player.getX() == j && this->player.getY() == i) {
+				DrawGraph((x * image.getImageSizeX(OBJECT_WALL)),
+					(y * image.getImageSizeY(OBJECT_WALL)), this->player.getImage().getImageHandle(0), FALSE);
 			}
 		}
 	}
@@ -378,7 +394,5 @@ Object Map::getObject(int x, int y) {
 }
 
 void Map::viewImage(int imageNum, int x, int y) {
-	DrawGraph((x * this->image.getImageSizeX(imageNum)),
-		(y * this->image.getImageSizeY(imageNum)),
-		this->image.getImageHandle(imageNum), FALSE);
+	DrawGraph(x,y,this->image.getImageHandle(imageNum), FALSE);
 }

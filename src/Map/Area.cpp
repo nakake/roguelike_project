@@ -44,3 +44,7 @@ void Area::setAreaNum(int areaNum) {
 int Area::getAreaNum() {
 	return areaNum;
 }
+
+Room Area::getRoom() {
+	return this->room;
+}

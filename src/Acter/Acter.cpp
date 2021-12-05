@@ -28,3 +28,11 @@ void Acter::setX(int x) {
 void Acter::setY(int y) {
 	this->y = y;
 }
+
+void Acter::setDirection(int direction) {
+	this->direction = direction;
+}
+
+int Acter::getDirection() {
+	return this->direction;
+}

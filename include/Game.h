@@ -2,12 +2,13 @@
 
 #define DEF_GAME_H
 
+#include "DxLib.h"
 #include "constant.h"
+#include "Random.h"
 #include "Map.h"
 #include "Camera.h"
-#include "Random.h"
 #include "Player.h"
-#include "Player.h"
+
 
 class Game
 {
@@ -18,6 +19,7 @@ private:
 	void createActers();
 	void createPlayer();
 	void viewObjects(int centerX, int centerY);
+	void viewAllObject();
 
 	Camera camera;
 	Map map;
